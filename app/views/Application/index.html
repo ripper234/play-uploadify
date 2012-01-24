@@ -1,0 +1,27 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<p>Upload an image:</p>
+
+<input type='file' id='uploader'>
+
+<script type="text/javascript" src="/public/libraries/uploadify/swfobject.js"></script>
+<script type="text/javascript" src="/public/libraries/uploadify/jquery.uploadify.v2.1.4.min.js"></script>
+
+<script type="text/javascript">
+
+$(function() {
+    $("#uploader").uploadify({
+        uploader    : '/public/libraries/uploadify/uploadify.swf',
+        script      : '/Application/upload',
+        cancelImg   : '/public/libraries/uploadify/cancel.png',
+        folder      : '/uploads',
+        fileExt     : '*.jpg;*.gif;*.png',
+        fileDesc    : 'Image Files',
+        fileDataName: 'file',
+        scriptData: {userId: 123},
+        auto: true
+    });
+});
+
+</script>
